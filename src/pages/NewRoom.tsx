@@ -6,7 +6,7 @@ import logoImg from '../assets/images/logo.svg';
 
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
-import { useAuth } from '../hooks/use.auth';
+import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
 
@@ -27,7 +27,7 @@ export function NewRoom() {
 
     const firebaseRoom = await roomRef.push({
       title: newRoom,
-      autorId: user?.id,
+      authorId: user?.id,
     });
 
     history.push(`/rooms/${firebaseRoom.key}`);
